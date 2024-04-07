@@ -4,7 +4,7 @@ import { useEffect,  } from "react";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 // import { TodoContextProvider } from "./contexts/Todo";
-import { Route,Routes } from "react-router";
+import { Route,Routes,useLocation } from "react-router";
 import Gallery from "./components/Gallery";
 import PostView from "./components/PostView";
 import Login from './components/auth/Login'
@@ -19,11 +19,13 @@ import EditPost from "./components/post/EditPost"
 import { SearchProvider } from "./contexts/searchContext";
 const App = () => {
   const dispatch = useDispatch();
-
+  const location = useLocation();
   useEffect(() => {
     // dispatch an action to load auth
     dispatch(loadUser());
   }, []);
+  const isAuthRoute = ["/login", "/signup", "/forgot-password", "/reset-password/:token"].includes(location.pathname);
+
   return (
     <div
     style={{
@@ -44,7 +46,7 @@ const App = () => {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Routes>
       </SearchProvider>
-    <Footer />
+      {!isAuthRoute && <Footer />}
   </div>
   );
 };

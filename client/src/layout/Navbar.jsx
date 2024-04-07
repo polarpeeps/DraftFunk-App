@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../redux/actions/auth";
-
+import LogoImage from './Modern Creative C Letter Free Logo.png';
 import { useContext, useState } from "react";
 import { SearchContext } from "../contexts/searchContext";
 
@@ -16,25 +16,17 @@ const Navbar = ({ changeView }) => {
   return (
     <nav
 
-      className="bg-white-800 shadow-md w-full "><div className="w-full pt-2 text-grey-700 dark-mode:text-gray-200 dark-mode:bg-gray-800">
-        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      className="bg-white-800 shadow-md w-full ">
+      <div className="w-full pt-2 text-grey-700 dark-mode:text-gray-200 dark-mode:bg-gray-800">
+        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 sm:justify-center sm:w-full lg:px-8">
           <div className="p-4 flex flex-row items-center justify-between">
-            <a href='/' className="text-xl font-semibold tracking-widest text-black uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">PinShare</a>
-            <button className="md:hidden rounded-lg focus:outline-none focus:shadow-outline" onClick={() => setOpen(!open)}>
-              <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
-                {!open ? (
-                  <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clipRule="evenodd" />
-                ) : (
-                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                )}
-              </svg>
-            </button>
+            <Link to='/'><img className="w-auto h-7" src={LogoImage} alt="Full Logo" /></Link>
           </div>
-          <div className="flex w-1/3  items-center">
+          <div className="flex w-1/3  justify-center   items-center ">
             <label htmlFor="simple-search" className="sr-only">
               Search
             </label>
-            <div className="relative w-full">
+            {/* <div className="relative w-full flex justify-center ">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg
                   className="w-4 h-4"
@@ -67,9 +59,28 @@ const Navbar = ({ changeView }) => {
                 required=""
               />
 
+            </div> */}
+            <div className="flex justify-center items-center w-full">
+              <div className="relative w-full max-w-xs"> 
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                  </svg>
+                </div>
+                <input
+                  style={{ borderBottom: "1px solid #ffbf00" }}
+                  onChange={(e) => setSearch(e.target.value)}
+                  type="text"
+                  id="simple-search"
+                  className="rounded-md focus:outline-none bg-white-50 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                  placeholder="Search post by name..."
+                  required=""
+                />
+              </div>
             </div>
+
           </div>
-          <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="  inset-y-0 right-0 flex justify-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="ml-3 relative">
               {auth.loaded && auth.token ? (
                 <div className="flex justify-center items-center">

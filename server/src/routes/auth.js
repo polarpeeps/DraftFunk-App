@@ -15,7 +15,7 @@ router.post("/forgot-password", forgotPassword);
 // reset the password
 router.post(
   "/reset-password/:token",
-  body("password").trim().isLength({ min: 5 }),
+  body("password").trim().isLength({ min: 10 }),
   changePassword
 );
 

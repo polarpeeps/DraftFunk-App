@@ -6,9 +6,8 @@ import { useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
 import { SearchContext } from "../contexts/searchContext";
-import { toast, Toaster } from "react-hot-toast";
+import { toast, } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Loader from "./Loader";
 const Gallery = () => {
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState([]);
@@ -18,7 +17,7 @@ const Gallery = () => {
   const lastImageRef = useRef(null);
   const observer = useRef(null);
   const user = useSelector((state) => state.auth.user);
-  const limit = 20;
+  const limit = 10;
   const navigate = useNavigate();
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -50,10 +49,10 @@ const Gallery = () => {
       setLoading(false);
     }
   };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [page]);
+  useEffect(() => {
+    fetchData();
+    navigate('/')
+  }, [page]);
 
   useEffect(() => {
     // no data or data is loading
@@ -196,7 +195,7 @@ const Gallery = () => {
         </Masonry>
       </ResponsiveMasonry>
       {loading && <div className="loader"></div>}
-      
+
     </>
   );
 };

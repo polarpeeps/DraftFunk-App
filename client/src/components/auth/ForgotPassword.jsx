@@ -23,59 +23,38 @@ const ForgotPassword = () => {
         email,
       });
     } catch (error) {
+      toast.error()
       console.log(error);
     } finally {
       setLoader(false);
     }
   };
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a
-          href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-        >
-          <img
-            className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-            alt="logo"
-          />
-          PinterestLike
-        </a>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Forgot your password?
-            </h1>
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-4 md:space-y-6"
-              action="#"
-            >
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Your email
-                </label>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required=""
-                />
-              </div>
-              <button
-                style={{
-                  background: "#ffbf00",
-                }}
-                type="submit"
-                className="w-full flex justify-center items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Send reset email
+    <section >
+      
+      <div className="relative py-16 bg-teal-900">
+        <div className="container relative m-auto px-6 md:px-12 xl:px-40">
+          <div className="m-auto space-y-8 md:w-8/12 lg:w-6/12 xl:w-6/12">
+            <div className="rounded-3xl bg-gray-100 shadow-inner border border-gray-200">
+              <div className="p-8 py-12 sm:p-16">
+                <h2 className="mb-8 text-2xl font-bold text-gray-800">Sign in to your account</h2>
+                <form onSubmit={handleSubmit} action="" className="space-y-8">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-gray-600">Email</label>
+                    <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="name@company.com"
+                      required=""
+                      className="focus:outline-none block w-full rounded-md border border-gray-300 bg-gray-100 px-4 py-3 text-gray-600 shadow-sm focus:ring-2 focus:ring-blue-300"
+                    />
+                  </div>
+
+                  
+                  <button type="submit" className="relative flex h-11 w-full items-center justify-center px-6 rounded-full bg-primary text-white font-semibold hover:bg-teal-800  focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md bg-amber-600">
+                    <span className="relative "> Send reset email
                 {loader && (
                   <svg
                     aria-hidden="true"
@@ -93,21 +72,25 @@ const ForgotPassword = () => {
                       fill="currentFill"
                     />
                   </svg>
-                )}
-              </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?{" "}
-                <Link
-                  to="/signup"
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Sign up
-                </Link>
-              </p>
-            </form>
+                )}</span>
+                  </button>
+
+                  <p className="border-t border-gray-200 pt-6 text-sm text-gray-500">
+                    Don’t have an account? &nbsp;
+                    <Link to="/signup" className="text-primary">Log In </Link>
+                  </p>
+                </form>
+              </div>
+            </div>
+            <div className="space-x-4 text-center text-gray-500">
+              <span>&copy;draftpunk</span>
+              <Link to="/" className="text-sm hover:text-primary">Contact</Link>
+              <Link to="/" className="text-sm hover:text-primary">Privacy & Terms</Link>
+            </div>
           </div>
         </div>
       </div>
+
     </section>
   );
 };

@@ -29,7 +29,7 @@ const Comment = ({ comment }) => {
           text-white
         "
         >
-        {comment.initials}
+          {comment.initials}
         </div>
       </div>
       <div className="p-4 md:w-1/2 md:flex-grow">
@@ -81,7 +81,7 @@ const PostView = () => {
   const [commentToShow, setShowComment] = useState([]);
   const user = useSelector((state) => state.auth.user);
   console.log(user)
-  
+
   // console.log(emailWithoutDomain);
   // Function to post a new comment
   const addComment = async () => {
@@ -135,14 +135,14 @@ const PostView = () => {
   return (
     <div className="max-w-full mx-auto bg-white rounded-md shadow-md overflow-hidden">
       <div className="md:flex gap-4">
-        <div className="md:w-1/2 flex items-center justify-center">
-          <img
-            src={imagePreview}
-            alt="Post"
-            // className="w-full h-auto object-cover md:h-full md:object-none"
-            className="object-cover rounded-sm m-2 "
-          />
-        </div>
+      <div className="md:flex md:w-1/2 items-center justify-center p-4 border border-gray-300">
+  <img
+    src={imagePreview}
+    alt="Post"
+    className="max-w-full max-h-[calc(100vh-8rem)] object-contain"
+  />
+</div>
+
         <div className="md:w-1/2 p-4 flex flex-col justify-center ">
           <div className="flex items-center mb-4">
             <img
@@ -154,50 +154,54 @@ const PostView = () => {
               <h2 className="text-lg font-semibold">{ownerName}</h2>
               {/* <p className="text-gray-600 text-sm">Location</p> */}
             </div>
+
           </div>
-          <div className="mb-4">
+          <div><div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">{title}</h3>
             <p className="text-gray-600 text-sm">
               {description}
             </p>
           </div>
-          <div className="flex items-center mb-4">
-            <button
-              className="flex items-center focus:outline-none"
-              onClick={handleLike}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`h-6 w-6 mr-1 ${liked ? "text-red-500 animate-like" : "text-gray-600"
-                  }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div className="flex items-center mb-4">
+              <button
+                className="flex items-center focus:outline-none"
+                onClick={handleLike}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={
-                    liked
-                      ? "M5 12h14M12 5l7 7-7 7"
-                      : "M12 4.5c-3.3 0-6 2.7-6 6 0 1.8.8 3.4 2 4.5l4 3.5 4-3.5c1.2-1.1 2-2.7 2-4.5 0-3.3-2.7-6-6-6zm0 10.5l-3.5 3-1.5-1.5 5-4.5 5 4.5-1.5 1.5-3.5-3z"
-                  }
-                />
-              </svg>
-              <p className="text-gray-600 text-sm">
-                {liked ? "Liked" : "Like"}
-              </p>
-            </button>
-          </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-6 w-6 mr-1 ${liked ? "text-red-500 animate-like" : "text-gray-600"
+                    }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={
+                      liked
+                        ? "M5 12h14M12 5l7 7-7 7"
+                        : "M12 4.5c-3.3 0-6 2.7-6 6 0 1.8.8 3.4 2 4.5l4 3.5 4-3.5c1.2-1.1 2-2.7 2-4.5 0-3.3-2.7-6-6-6zm0 10.5l-3.5 3-1.5-1.5 5-4.5 5 4.5-1.5 1.5-3.5-3z"
+                    }
+                  />
+                </svg>
+                <p className="text-gray-600 text-sm">
+                  {liked ? "Liked" : "Like"}
+                </p>
+              </button>
+            </div></div>
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Comments</h3>
-            {commentToShow.map((comm, index) => (
+            <div style={{
+              maxHeight: '400px', // Adjust this value according to your needs
+              overflowY: 'auto'
+            }}>{commentToShow.map((comm, index) => (
               <Comment
                 key={index} // It's better to use a unique identifier if you have one
                 comment={comm}
               />
-            ))}
+            ))}</div>
 
 
             <div className="mb-4">
