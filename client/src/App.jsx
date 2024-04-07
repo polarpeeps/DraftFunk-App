@@ -24,7 +24,7 @@ const App = () => {
     // dispatch an action to load auth
     dispatch(loadUser());
   }, []);
-  const isAuthRoute = ["/login", "/signup", "/forgot-password", "/reset-password/:token"].includes(location.pathname);
+  const isAuthRoute = ["/login", "/signup", "/forgot-password", "/reset-password/*"].includes(location.pathname);
 
   return (
     <div

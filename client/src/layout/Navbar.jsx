@@ -18,7 +18,8 @@ const Navbar = ({ changeView }) => {
   return (
     <nav
 
-      className="bg-white-800 shadow-md w-full ">
+      className="bg-white-800 shadow-md w-full "
+      style={{ backgroundColor: '#2b2b2b' }}>
       <div className="w-full pt-2 text-grey-700 dark-mode:text-gray-200 dark-mode:bg-gray-800">
         <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 sm:justify-center sm:w-full lg:px-8">
           <div className="p-4 flex flex-row items-center justify-between">
@@ -110,12 +111,16 @@ const Navbar = ({ changeView }) => {
                   <Link
                     to="/login"
                     className="px-4 py-2 mt-2 text-sm  font-semibold text-black  rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    style={{ backgroundColor: 'blue',color:'#ebeef1' }}
                   >
                     Login
                   </Link>
                   <Link
                     to="/signup"
-                    className="px-4 py-2 mt-2 text-sm font-semibold text-black bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    className="px-4 py-2 mt-2 text-sm font-semibold text-black bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    style={{ backgroundColor: 'orange',color:'#ebeef1' }}
+
+                    >
                     Register
                   </Link>
                 </div>

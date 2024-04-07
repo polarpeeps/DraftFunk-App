@@ -41,7 +41,11 @@ const Gallery = () => {
       if (data.length === 0) {
         setDone(true);
       } else {
-        setPosts((prev) => [...prev, ...data]);
+        setPosts((prev) => {
+          const newPosts = data.filter((post) => !prev.find((p) => p._id === post._id));
+          return [...prev, ...newPosts];
+        });
+        
       }
     } catch (error) {
       console.log(error);
@@ -51,7 +55,7 @@ const Gallery = () => {
   };
   useEffect(() => {
     fetchData();
-    navigate('/')
+    
   }, [page]);
 
   useEffect(() => {
