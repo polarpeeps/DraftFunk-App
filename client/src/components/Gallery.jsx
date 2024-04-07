@@ -93,16 +93,16 @@ const Gallery = () => {
         <Masonry>
           {posts.map(
             ({ title, _id: postId, image, user: postOwner, link }, index) => (
-              <div key={postId} className="relative m-1">
+              <div key={postId} className="relative mx-4">
                 <img
                   ref={index === posts.length - 1 ? lastImageRef : null}
-                  className="object-cover rounded-sm m-2 "
+                  className="object-cover rounded-xl m-2 "
                   src={image}
                   alt="random"
                   style={{ objectFit: "contain" }}
                 />
                 <div
-                  className="absolute bg-black bg-opacity-50 rounded-lg flex flex-col justify-center items-center opacity-0 hover:cursor-pointer hover:opacity-100 transition-opacity duration-300"
+                  className="absolute bg-black bg-opacity-50 rounded-xl flex flex-col justify-center items-center opacity-0 hover:cursor-pointer hover:opacity-100 transition-opacity duration-300"
                   style={{
                     position: "absolute",
                     top: 0,
