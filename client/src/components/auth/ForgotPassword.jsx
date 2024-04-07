@@ -23,7 +23,7 @@ const ForgotPassword = () => {
         email,
       });
     } catch (error) {
-      toast.error()
+      toast.error(error.message)
       console.log(error);
     } finally {
       setLoader(false);
@@ -32,12 +32,13 @@ const ForgotPassword = () => {
   return (
     <section >
       
-      <div className="relative py-16 bg-teal-900">
+      <div className="relative py-16 bg-teal-900 h-screen
+      ">
         <div className="container relative m-auto px-6 md:px-12 xl:px-40">
           <div className="m-auto space-y-8 md:w-8/12 lg:w-6/12 xl:w-6/12">
             <div className="rounded-3xl bg-gray-100 shadow-inner border border-gray-200">
               <div className="p-8 py-12 sm:p-16">
-                <h2 className="mb-8 text-2xl font-bold text-gray-800">Sign in to your account</h2>
+                <h2 className="mb-8 text-2xl font-bold text-gray-800">Enter your email</h2>
                 <form onSubmit={handleSubmit} action="" className="space-y-8">
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-gray-600">Email</label>
@@ -54,7 +55,7 @@ const ForgotPassword = () => {
 
                   
                   <button type="submit" className="relative flex h-11 w-full items-center justify-center px-6 rounded-full bg-primary text-white font-semibold hover:bg-teal-800  focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md bg-amber-600">
-                    <span className="relative "> Send reset email
+                    <span className="relative "> Send password reset email
                 {loader && (
                   <svg
                     aria-hidden="true"
